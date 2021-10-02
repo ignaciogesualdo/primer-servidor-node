@@ -1,10 +1,39 @@
 const express = require('express')
+const multer  = require('multer')
+const sharp = require('sharp')
+const fs = require('fs')
+
+const storageStrategy = multer.memoryStorage()
+const upload = multer({ storage: storageStrategy })
 
 const app = express()
 
-app.get('/', function(req, res) {
+app.use(express.json())
 
-    res.send('Hola mundo!!!!!!')
+app.get('/' , function(req, res) {
+
+    res.send('<h1> Hola mundo desde HEROKUU!! </h1>')
+})
+
+app.post('/imagen', upload.single('imagen') , async function (req, res) {
+
+    const imagen = req.file
+
+    const processedImage = sharp(imagen.buffer)
+
+    const resizedImage = processedImage.resize(800, 800, {
+        fit: "contain",
+        background: "#FFF"
+    })
+
+    const resizedImageBuffer = await resizedImage.toBuffer()
+
+    fs.writeFileSync('nuevaruta/prueba.png', resizedImageBuffer)
+
+    console.log(resizedImageBuffer)
+
+    res.send({ resizedImage: resizedImageBuffer})
+
 })
 
 app.listen(3000)

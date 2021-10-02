@@ -4,11 +4,16 @@
   "description": "Este es nuestro primer servidor de Node JS",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app"
   },
   "author": "Martín Gesualdo",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "multer": "^1.4.3",
+    "sharp": "^0.29.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
   }
 }
