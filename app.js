@@ -12,7 +12,7 @@ app.use(express.json())
 
 app.get('/' , function(req, res) {
 
-    res.send('Hola mundo!')
+    res.send('Hola mundo desde HEROKU!')
 })
 
 app.post('/imagen', upload.single('imagen') , async function (req, res) {
