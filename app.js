@@ -36,5 +36,9 @@ app.post('/imagen', upload.single('imagen') , async function (req, res) {
 
 })
 
-app.listen(3000)
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, function() {
+    console.log("Nuestra aplicación está corriendo en el puerto: ", PORT)
+})
 
