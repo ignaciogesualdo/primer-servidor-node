@@ -4,7 +4,8 @@
   "description": "Este es nuestro primer servidor de Node JS",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app"
+    "dev": "nodemon app",
+    "start": "node app"
   },
   "author": "Martín Gesualdo",
   "license": "ISC",
