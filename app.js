@@ -12,7 +12,7 @@ app.use(express.json())
 
 app.get('/' , function(req, res) {
 
-    res.send('<h1> Hola mundo desde HEROKUU!! </h1>')
+    res.send('Hola mundo!')
 })
 
 app.post('/imagen', upload.single('imagen') , async function (req, res) {
@@ -36,9 +36,11 @@ app.post('/imagen', upload.single('imagen') , async function (req, res) {
 
 })
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4000
+
 
 app.listen(PORT, function() {
-    console.log("Nuestra aplicación está corriendo en el puerto: ", PORT)
+
+    console.log("Servidor escuchando en el puerto", PORT)
 })
 
