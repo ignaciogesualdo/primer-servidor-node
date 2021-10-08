@@ -32,7 +32,7 @@ app.post('/imagen', upload.single('imagen') , async function (req, res) {
 
     console.log(resizedImageBuffer)
 
-    res.send({ resizedImage: resizedImageBuffer})
+    res.send({ '$content-type': 'image/png', '$content': resizedImageBuffer.toString('base64')})
 
 })
 
