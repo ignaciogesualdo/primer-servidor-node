@@ -19,6 +19,8 @@ app.post('/imagen', upload.single('imagen') , async function (req, res) {
 
     const imagen = req.file
 
+    console.log({file: req.file})
+
     const processedImage = sharp(imagen.buffer)
 
     const resizedImage = processedImage.resize(800, 800, {
@@ -26,13 +28,23 @@ app.post('/imagen', upload.single('imagen') , async function (req, res) {
         background: "#FFF"
     })
 
-    const resizedImageBuffer = await resizedImage.toBuffer()
+    try {
+        
+        const resizedImageBuffer = await resizedImage.toBuffer()
+    } catch (error) {
+        console.log({error})
+    }
 
     fs.writeFileSync('nuevaruta/prueba.png', resizedImageBuffer)
 
     console.log(resizedImageBuffer)
 
-    res.send({ '$content-type': 'image/png', '$content': resizedImageBuffer.toString('base64')})
+    res.send(
+        { 
+        '$content-type': 'image/png', 
+        '$content': resizedImageBuffer.toString('base64')
+        }
+    )
 
 })
 

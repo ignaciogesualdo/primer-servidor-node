@@ -1,0 +1,11 @@
+{
+    "$content-type": "multipart/form-data",
+    "$multipart": [
+      {
+        "body": ,
+        "headers": {
+          "Content-Disposition": "form-data;name=imagen"
+        }
+      }
+    ]
+}
