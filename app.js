@@ -27,10 +27,11 @@ app.post('/imagen', upload.single('imagen') , async function (req, res) {
         fit: "contain",
         background: "#FFF"
     })
-
+    
+    let resizedImageBuffer
+    
     try {
-        
-        const resizedImageBuffer = await resizedImage.toBuffer()
+        resizedImageBuffer = await resizedImage.toBuffer()
     } catch (error) {
         console.log({error})
     }
